@@ -164,6 +164,12 @@ WEBM ONLY:
                 int MS = int.Parse(DebugRead("Length (in milliseconds): "));
                 FileBytes = OverwriteWEBMTime(FileBytes, BitConverter.GetBytes(MS));
             }
+            else
+            {
+                DebugWrite("Invalid option selected", ConsoleColor.Red);
+                System.Threading.Thread.Sleep(3000);
+                return;
+            }
 
             string fileName = Path.GetFileNameWithoutExtension(file) + "-converted" + Path.GetExtension(file);
             File.WriteAllBytes(fileName, FileBytes);
