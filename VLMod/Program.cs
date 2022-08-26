@@ -15,6 +15,7 @@ namespace VLMod
             if(args.Length == 0)
             {
                 Console.WriteLine($"Please Drag & Drop a video onto the executable");
+                Console.ReadKey();
                 return;
             }
             string file = args[0];
