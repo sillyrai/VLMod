@@ -121,7 +121,6 @@ WEBM ONLY:
                 }
 
                 Data[TimeOff + Pos] = b;
-
                 return Data;
             }
 
