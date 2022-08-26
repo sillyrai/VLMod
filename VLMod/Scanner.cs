@@ -20,8 +20,14 @@ namespace VLMod
         {
             byte[] o3e8_aob = { 3, 232 }; // "03 E8"
             for (int i = mvhd; i < data.Length; i++)
+            {
+                if(i>200)
+                    // Give up.
+                    return mvhd+250; // return a number to trigger a warning that it was too large
                 if (data.Skip(i).Take(o3e8_aob.Length).SequenceEqual(o3e8_aob))
                     return i;
+            }
+
             return mvhd+18; // incase it cannot locate it, return an approximate (o3e8 is usually located 18 bytes off from mvhd)
         }
 
